@@ -9,7 +9,9 @@ import { transactionsRoutes } from "./routes/transactions"
 
 const app = Fastify()
 
-app.register(transactionsRoutes)
+app.register(transactionsRoutes, {
+    prefix: "transactions"
+})
 
 // Run the server!
 app.listen({
