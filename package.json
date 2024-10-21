@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/server.ts",
-    "lint": "npx eslint src/**/*.ts --fix"
+    "lint": "npx eslint src/**/*.ts --fix",
+    "knex": "node --import tsx ./node_modules/knex/bin/cli.js"
   },
   "keywords": [],
   "author": "",
