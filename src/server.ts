@@ -1,9 +1,9 @@
 // Import the framework and instantiate it
 import Fastify from "fastify"
-import { knex } from "./database"
-import { randomUUID } from "node:crypto"
-import { title } from "node:process"
 import { env } from "./env"
+import { transactionsRoutes } from "./routes/transactions"
+
+import cookie from "@fastify/cookie"
 
 // const app = Fastify({
 //   logger: true
@@ -11,16 +11,9 @@ import { env } from "./env"
 
 const app = Fastify()
 
-// Declare a route
-app.get("/", async function handler (request, reply) {
-    const transaction = await knex("transactions").insert({
-      id: randomUUID(),
-      title: "Transação de teste",
-      amount: 1000,
-    })
-    .returning("*")
-
-    return transaction
+app.register(cookie)
+app.register(transactionsRoutes, {
+    prefix: "transactions"
 })
 
 // Run the server!
