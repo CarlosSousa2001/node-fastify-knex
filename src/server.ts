@@ -1,13 +1,18 @@
 // Import the framework and instantiate it
 import Fastify from "fastify"
+import { knex } from "./database"
 
-const app = Fastify({
-  logger: true
-})
+// const app = Fastify({
+//   logger: true
+// })
+
+const app = Fastify()
 
 // Declare a route
 app.get("/", async function handler (request, reply) {
-  return { hello: "world" }
+    const tables = await knex("sqlite_schema").select("*")
+
+    return tables
 })
 
 // Run the server!

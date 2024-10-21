@@ -10,7 +10,7 @@ export default [
   ...tseslint.configs.recommended,
   {
     rules: {
-      quotes: ["error", "double"], // Define que as aspas devem ser simples
+      quotes: ["error", "double"], // Define que as aspas devem ser duplas
       // "no-unused-vars": "off", // Desativa a regra de variáveis não utilizadas
       "@typescript-eslint/no-unused-vars": "off", // Desativa a regra de variáveis não utilizadas (para TS)
     },
