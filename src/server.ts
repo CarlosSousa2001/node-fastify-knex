@@ -3,12 +3,15 @@ import Fastify from "fastify"
 import { env } from "./env"
 import { transactionsRoutes } from "./routes/transactions"
 
+import cookie from "@fastify/cookie"
+
 // const app = Fastify({
 //   logger: true
 // })
 
 const app = Fastify()
 
+app.register(cookie)
 app.register(transactionsRoutes, {
     prefix: "transactions"
 })
