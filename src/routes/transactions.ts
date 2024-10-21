@@ -2,11 +2,9 @@ import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify"
 import { knex } from "../database"
 import { randomUUID } from "node:crypto"
 import { z } from "zod"
-import { error } from "node:console"
 import { checkSessionIdExists } from "../middleware/check-session-id-exist"
 
 export async function transactionsRoutes(app: FastifyInstance) {
-
 
     app.get("/", {
         preHandler: [checkSessionIdExists]
