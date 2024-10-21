@@ -3,6 +3,7 @@ import Fastify from "fastify"
 import { knex } from "./database"
 import { randomUUID } from "node:crypto"
 import { title } from "node:process"
+import { env } from "./env"
 
 // const app = Fastify({
 //   logger: true
@@ -24,7 +25,7 @@ app.get("/", async function handler (request, reply) {
 
 // Run the server!
 app.listen({
-    port: 3333
+    port: env.PORT
 }).then(()=> {
     console.log("HTTO sever running")
 })
